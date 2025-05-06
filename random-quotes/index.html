@@ -10,8 +10,14 @@
     <div class="container">
       <h1>Random Quotes</h1>
       <p id="quote" class="quote">Click the button to get a random quote</p>
-      <p id="quote-author">(aurhor)</p>
+      <p id="quote-author"></p>
       <button id="generate-btn" class="btn">Generate Quote</button>
+      <button id="toggle-favorite-btn" class="btn" hidden>
+        Add to favorites
+      </button>
+    </div>
+    <div class="favorites-container">
+      <div id="favorites" class="favorites-grid"></div>
     </div>
     <script type="module" src="script.js"></script>
   </body>
