@@ -1,56 +1,75 @@
 import quotes from "./quotes.js";
+import DOM from "./dom.js";
 
-const quoteElement = document.getElementById("quote");
-const quoteAuthorElement = document.getElementById("quote-author");
-const generateBtn = document.getElementById("generate-btn");
-const toggleFavoriteBtn = document.getElementById("toggle-favorite-btn");
-const favoritesContainer = document.getElementById("favorites");
+// Переменная для хранения индекса текущей цитаты
+let currentQuoteIndex = null;
 
-let currentQuoteIndex;
+// Инициализация
+window.addEventListener("DOMContentLoaded", () => {
+  hideFavoriteButton();
 
-function generateRandomQuote() {
-  currentQuoteIndex = Math.floor(Math.random() * quotes.length);
-  const randomQuote = quotes[currentQuoteIndex];
-  quoteElement.textContent = randomQuote.quote;
-  quoteAuthorElement.textContent = randomQuote.author;
+  DOM.generateBtn.addEventListener("click", handleGenerateQuote);
+  DOM.toggleFavBtn.addEventListener("click", handleToggleFavorite);
+});
 
-  toggleFavoriteBtn.textContent = randomQuote.isFavorite
-    ? "Remove from favorites"
-    : "Add to favorites";
-  toggleFavoriteBtn.hidden = false; // <- показываем кнопку
+// Обработчики
+function handleGenerateQuote() {
+  currentQuoteIndex = getRandomIndex();
+  const quote = quotes[currentQuoteIndex];
+
+  renderQuote(quote);
+  updateFavoriteButton(quote.isFavorite);
+  showFavoriteButton();
 }
 
-function toggleFavorite() {
-  const currentQuote = quotes[currentQuoteIndex];
-  currentQuote.isFavorite = !currentQuote.isFavorite;
+function handleToggleFavorite() {
+  if (currentQuoteIndex === null) return;
 
-  toggleFavoriteBtn.textContent = currentQuote.isFavorite
-    ? "Remove from favorites"
-    : "Add to favorites";
+  const quote = quotes[currentQuoteIndex];
+  quote.isFavorite = !quote.isFavorite;
 
+  updateFavoriteButton(quote.isFavorite);
   renderFavorites();
 }
 
-function renderFavorites() {
-  favoritesContainer.innerHTML = ""; // очистка старого содержимого
-
-  const favoriteQuotes = quotes.filter((q) => q.isFavorite);
-
-  favoriteQuotes.forEach((q) => {
-    const card = document.createElement("div");
-    card.classList.add("favorite-card");
-
-    const quoteText = document.createElement("p");
-    quoteText.textContent = `"${q.quote}"`;
-
-    const authorText = document.createElement("p");
-    authorText.textContent = `${q.author}`;
-
-    card.appendChild(quoteText);
-    card.appendChild(authorText);
-    favoritesContainer.appendChild(card);
-  });
+// Отображение цитаты
+function renderQuote({ quote, author }) {
+  DOM.quoteEl.textContent = quote;
+  DOM.authorEl.textContent = author;
 }
 
-generateBtn.addEventListener("click", generateRandomQuote);
-toggleFavoriteBtn.addEventListener("click", toggleFavorite);
+// Отображение кнопки избранного
+function updateFavoriteButton(isFavorite) {
+  DOM.starEl.textContent = isFavorite ? "★" : "☆";
+  DOM.starEl.style.color = isFavorite ? "gold" : "gray";
+  DOM.favText.textContent = isFavorite
+    ? "Remove from favorites"
+    : "Add to favorites";
+}
+
+// Создание и отображение карточек избранных цитат
+function renderFavorites() {
+  DOM.favoritesGrid.innerHTML = "";
+
+  quotes
+    .filter((q) => q.isFavorite)
+    .forEach(({ quote, author }) => {
+      const card = document.createElement("div");
+      card.className = "favorite-card";
+      card.innerHTML = `<p>"${quote}"</p><p>${author}</p>`;
+      DOM.favoritesGrid.appendChild(card);
+    });
+}
+
+// Вспомогательные функции
+function getRandomIndex() {
+  return Math.floor(Math.random() * quotes.length);
+}
+
+function hideFavoriteButton() {
+  DOM.toggleFavBtn.classList.add("hidden");
+}
+
+function showFavoriteButton() {
+  DOM.toggleFavBtn.classList.remove("hidden");
+}
