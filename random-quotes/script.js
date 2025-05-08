@@ -16,7 +16,6 @@ window.addEventListener("DOMContentLoaded", () => {
 function handleGenerateQuote() {
   currentQuoteIndex = getRandomIndex();
   const quote = quotes[currentQuoteIndex];
-
   renderQuote(quote);
   updateFavoriteButton(quote.isFavorite);
   showFavoriteButton();
@@ -24,10 +23,8 @@ function handleGenerateQuote() {
 
 function handleToggleFavorite() {
   if (currentQuoteIndex === null) return;
-
   const quote = quotes[currentQuoteIndex];
   quote.isFavorite = !quote.isFavorite;
-
   updateFavoriteButton(quote.isFavorite);
   renderFavorites();
 }

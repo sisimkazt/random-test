@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Магазин</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Навигация (можно добавить позже) -->
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#">Головна</a></li>
+          <li><a href="#">Категорії</a></li>
+          <li><a href="#">Контакти</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Наші товари</h1>
+
+      <div class="product-container">
+        <!-- Карточка товару 1 -->
+        <a href="product.html?id=1" target="_blank" class="product-card">
+          <img src="versage.jpg" alt="Товар 1" class="product-img" />
+          <h3>Товар 1</h3>
+          <div class="prices">
+            <p class="price">1000 грн</p>
+            <p class="discount-price">700 грн</p>
+          </div>
+        </a>
+
+        <!-- Карточка товару 2 -->
+        <a href="product.html?id=2" target="_blank" class="product-card">
+          <img src="product2.jpg" alt="Товар 2" class="product-img" />
+          <h3>Товар 2</h3>
+          <div class="prices">
+            <p class="price">1500 грн</p>
+            <p class="discount-price">1000 грн</p>
+          </div>
+        </a>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

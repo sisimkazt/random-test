@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Versage Cristal</title>
+    <link rel="stylesheet" href="product.css" />
+  </head>
+  <body>
+    <!-- Описание товара с преимуществами -->
+    <section class="product-description">
+      <div class="product-detail">
+        <!-- Вставляем картинку товара -->
+        <img src="headversage.png" alt="Товар 1" class="product-image" />
+
+        <p>Це товар, який змінить ваше життя. Ось чому:</p>
+
+        <div class="prices">
+          <p class="old-price">1000 грн</p>
+          <p class="price">700 грн</p>
+        </div>
+
+        <div class="timer-container">
+          <p class="timer-label">До кінця акції залишилося</p>
+          <div class="timer" id="countdown"></div>
+        </div>
+
+        <h3>Переваги товару</h3>
+        <ul>
+          <li>Довговічність</li>
+          <li>Висока якість</li>
+          <li>Знижка на обмежений термін</li>
+        </ul>
+
+        <h3>Як це працює</h3>
+        <p>
+          Просто натисніть кнопку нижче і отримайте товар за зниженою ціною.
+          Поспішайте, акція триває лише 6 годин!
+        </p>
+
+        <div class="youtube-video">
+          <iframe
+            width="700px"
+            height="315px"
+            src="https://www.youtube.com/embed/VB7nIm8OEnk"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция "Зробіть покупку" -->
+    <section id="purchase" class="purchase-section">
+      <div class="purchase-container">
+        <h2>Придбати товар</h2>
+        <p>Вигідна ціна! Скористайтеся акцією зараз!</p>
+        <button class="cta-btn" onclick="window.location.href='checkout.html'">
+          Придбати
+        </button>
+      </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+      <p>&copy; 2025 Мій магазин. Всі права захищено.</p>
+    </footer>
+
+    <script src="product.js"></script>
+  </body>
+</html>

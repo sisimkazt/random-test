@@ -1,0 +1,322 @@
+/* Основные стили */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7;
+  color: #333;
+  display: flex;
+  justify-content: center; /* Центрируем контент по горизонтали */
+  align-items: center; /* Центрируем контент по вертикали */
+  height: 100%; /* Чтобы контейнер занимал всю высоту экрана */
+  flex-direction: column; /* Элементы идут по вертикали */
+}
+
+.container {
+  width: 500px; /* Ширина контейнера */
+  max-width: 800px; /* Ограничение максимальной ширины */
+  margin: 0; /* Убираем margin, если он был */
+}
+
+/* Описание товара */
+
+.product-description {
+  width: 100%;
+  max-width: 700px; /* или любая другая максимальная ширина */
+  text-align: center;
+  background-color: #fff;
+  margin: 0 auto;
+}
+
+.product-detail h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.product-detail p {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+/* Стили для картинки товара */
+.product-image {
+  width: 100%; /* Растягиваем изображение по ширине контейнера */
+  height: auto; /* Высота сохраняет пропорции */
+  object-fit: contain; /* Изображение будет полностью видимым, без обрезания */
+  display: block; /* Убираем пустое пространство снизу, если оно есть */
+  margin: 0 auto; /* Центрируем изображение */
+}
+
+/* Цены */
+.prices {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 24px;
+  margin-right: 20px;
+}
+
+.price {
+  color: #ff5733;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+/* Таймер */
+.timer-container {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.timer-label {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.timer {
+  font-size: 90px; /* Увеличиваем размер шрифта */
+  font-family: "Courier New", Courier, monospace; /* Шрифт как для офисных часов */
+  color: white; /* Белые цифры */
+  background-color: black; /* Черный фон */
+  padding: 15px 20px;
+  text-align: center;
+  display: inline-block;
+  height: 100px;
+  width: 70%; /* Таймер растягивается на всю ширину */
+  border-radius: 8px;
+  letter-spacing: 2px; /* Между цифрами */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Для анимации "переворачивания" цифр */
+@keyframes flip {
+  0% {
+    transform: rotateX(0deg);
+  }
+  50% {
+    transform: rotateX(90deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+.timer span {
+  display: inline-block;
+  animation: flip 0.5s ease-in-out infinite;
+}
+
+.youtube-video {
+  margin-top: 30px;
+}
+
+.youtube-video iframe {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+/* Секция "Покупка" */
+.purchase-section {
+  background-color: #f0f0f0;
+  padding: 50px;
+  text-align: center;
+}
+
+.purchase-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.purchase-container h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.purchase-container p {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+footer {
+  text-align: center;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Блок формы */
+.form-container {
+  width: 100%;
+  max-width: 500px; /* Ограничиваем ширину формы */
+  margin: 20px auto; /* Центрируем форму по горизонтали */
+  padding: 20px;
+  background-color: #fff; /* Белый фон для формы */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center; /* Центрируем текст внутри формы */
+}
+
+.form-container h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-container input,
+.form-container textarea {
+  width: 100%; /* Формы растягиваются на всю ширину контейнера */
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #333;
+  box-sizing: border-box; /* Чтобы padding не нарушал ширину */
+}
+
+.form-container button {
+  background-color: #ff5733; /* Кнопка с ярким цветом */
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-container button:hover {
+  background-color: #e14c29; /* Потемнение кнопки при наведении */
+}
+
+/* Мобильные стили для формы */
+@media (max-width: 768px) {
+  .form-container {
+    padding: 20px 15px; /* Уменьшаем padding на мобильных устройствах */
+  }
+
+  .form-container h2 {
+    font-size: 24px;
+  }
+
+  .form-container input,
+  .form-container textarea {
+    font-size: 14px;
+  }
+
+  .form-container button {
+    font-size: 16px;
+    padding: 12px 25px;
+  }
+}
+
+/* Мобильные стили */
+@media (max-width: 768px) {
+  .product-description {
+    padding: 30px 20px;
+  }
+
+  .product-detail h2 {
+    font-size: 30px;
+  }
+
+  .product-detail p {
+    font-size: 18px;
+  }
+
+  .prices {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .old-price {
+    font-size: 18px;
+  }
+
+  .price {
+    font-size: 24px;
+  }
+
+  .timer-container {
+    margin-top: 2px;
+  }
+
+  .timer {
+    font-size: 60px !important; /* Обеспечиваем приоритет большого шрифта */
+    width: 90% !important;
+    height: 80px !important;
+    padding: 10px 15px !important;
+  }
+
+  .timer-label {
+    font-size: 20px !important;
+  }
+  .youtube-video iframe {
+    width: 100%;
+    height: 250px;
+  }
+
+  .purchase-container h2 {
+    font-size: 30px;
+  }
+
+  .purchase-container p {
+    font-size: 18px;
+  }
+}
+
+/* Таблеты */
+@media (max-width: 1024px) {
+  .product-description {
+    padding: 40px 20px;
+  }
+
+  .product-detail h2 {
+    font-size: 34px;
+  }
+
+  .product-detail p {
+    font-size: 20px;
+  }
+
+  .prices {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .old-price {
+    font-size: 20px;
+  }
+
+  .price {
+    font-size: 28px;
+  }
+
+  .timer {
+    font-size: 22px;
+  }
+
+  .youtube-video iframe {
+    width: 100%;
+    height: 300px;
+  }
+
+  .purchase-container h2 {
+    font-size: 32px;
+  }
+
+  .purchase-container p {
+    font-size: 22px;
+  }
+}
